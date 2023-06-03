@@ -15,21 +15,21 @@ pipeline {
         stage('Build') {
             steps {
                 script{
-                 app = docker.build("my-demo-docker-repo")
+                    app = docker.build("jenkins-test")
                 }
             }
         }
-        stage('Test'){
+        stage('Test') {
             steps {
                  echo 'Empty'
             }
         }
         stage('Deploy') {
             steps {
-                script{
-                        docker.withRegistry('https://936176622875.dkr.ecr.us-east-1.amazonaws.com/', 'ecr:us-east-1:DemoJenkinUser') {
-                    app.push("${env.BUILD_NUMBER}")
-                    app.push("latest")
+                script {
+                    docker.withRegistry('https://936176622875.dkr.ecr.us-east-1.amazonaws.com/', 'ecr:us-east-1:aws-user') {
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
                     }
                 }
             }
