@@ -14,7 +14,6 @@ Jenkins with AWS ECR pipeline
 10. which git ---> set git path in Jenkins
 11. chmod 777 /var/run/docker.sock
 
-
 ## Install Jenkins
 
 https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/
